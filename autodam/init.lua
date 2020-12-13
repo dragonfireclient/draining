@@ -1,7 +1,7 @@
 minetest.register_globalstep(function()
 	if not minetest.settings:get_bool("autodam") then return end
 	local player = minetest.localplayer
-	if not player then end
+	if not player then return end
 	if player:get_wielded_item():get_name() ~= "mcl_core:dirt" then return end
 	local dirt = minetest.find_nodes_near(vector.add(player:get_pos(), vector.new(0, 1, 0)), 4, "mcl_core:dirt")
 	for _, dp in ipairs(dirt) do
