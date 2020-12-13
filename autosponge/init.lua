@@ -3,7 +3,7 @@ local etime = 0.0
 minetest.register_globalstep(function(dtime)
 	if not minetest.settings:get_bool("autosponge") then return end
 	local player = minetest.localplayer
-	if not player then end
+	if not player then return end
 	if player:get_wielded_item():get_name() ~= "mcl_sponges:sponge" then return end
 	etime = etime + dtime
 	if etime >= 0.3 then
